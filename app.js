@@ -67,7 +67,7 @@ document.getElementById("btn-hold").addEventListener("click", function () {
   );
   document.querySelector("#score" + activePlayer).textContent =
     "" + totalScore[activePlayer];
-  if (totalScore[activePlayer] < 10) {
+  if (totalScore[activePlayer] < 100) {
     current = 0;
     document.querySelector("#current" + activePlayer).textContent =
       "" + current;
