@@ -1,0 +1,142 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: "Nunoto", sans-serif;
+}
+.bg-color {
+  background-color: rgb(223, 134, 134);
+}
+.container {
+  position: relative;
+  height: 600px;
+  width: 1000px;
+  background-color: bisque;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-radius: 10px;
+  margin-top: 3rem;
+}
+
+.bg-p {
+  text-align: center;
+}
+
+h1 {
+  font-weight: 400;
+  text-transform: uppercase;
+  margin-top: 4rem;
+}
+
+.totalScore {
+  margin-top: 2rem;
+  font-size: 4rem;
+  color: #c7365f;
+}
+
+.currentContainer {
+  background-color: c7365f;
+  height: 8rem;
+  width: 13rem;
+  border-radius: 0.5rem;
+  margin: auto;
+  margin-top: 8rem;
+}
+
+h3 {
+  text-transform: uppercase;
+  font-weight: 300;
+  color: white;
+  padding-top: 1.6rem;
+  font-size: 1rem;
+}
+
+.currentScore {
+  font-size: 2rem;
+  color: white;
+  padding-top: 0.7rem;
+}
+
+.player0 {
+  background-color: rgb(246, 208, 208);
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+.player1 {
+  background-color: rgb(246, 208, 208);
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.container1 {
+  display: flex;
+  justify-content: space-between;
+}
+.item1 {
+  background-image: linear-gradient(to right, #f8f8f8, rgb(223, 134, 134));
+  padding: 1rem;
+  text-align: center;
+  font-size: 12px;
+  flex-basis: 220px;
+}
+
+.item2 {
+  background-image: linear-gradient(to left, #f8f8f8, rgb(223, 134, 134));
+  padding: 1rem;
+  text-align: center;
+  font-size: 12px;
+  flex-basis: 220px;
+}
+
+.item-reset {
+  background-color: rgb(248, 242, 242);
+  padding: 1rem;
+  text-align: center;
+  text-transform: uppercase;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  margin-top: 1rem;
+  border-radius: 5px;
+  border: none;
+  color: rgb(40, 39, 39);
+}
+
+.item-reset:hover {
+  background-color: rgb(245, 190, 190);
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.dice {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.btn-roll {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.btn-hold {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.active-bg {
+  background-color: rgb(248, 237, 237);
+}
+
+.win-bg {
+  background-color: rgb(250, 246, 196);
+}
