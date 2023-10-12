@@ -1,5 +1,9 @@
+.bg-color {
+  background-color: rgb(237, 146, 146);
+}
+
 .container {
-  height: 40vh;
+  height: 400px;
   width: 90vw;
 }
 
@@ -12,8 +16,8 @@ h1 {
 }
 
 .currentContainer {
-  height: 8rem;
-  width: 13rem;
+  height: 7rem;
+  width: 11rem;
   margin-top: 3rem;
 }
 .item-reset {
@@ -32,7 +36,16 @@ h1 {
 }
 
 .dice {
+  border: 2px;
   transform: scale(0.7);
   top: 20%;
-  left: 41.55%;
+  left: 41%;
+}
+
+.item1 {
+  background-image: linear-gradient(to right, #f8f8f8, rgb(237, 146, 146));
+}
+
+.item2 {
+  background-image: linear-gradient(to left, #f8f8f8, rgb(237, 146, 146));
 }

@@ -1,5 +1,5 @@
 .container {
-  height: 40vh;
+  height: 400px;
   width: 90vw;
 }
 
@@ -12,8 +12,8 @@ h1 {
 }
 
 .currentContainer {
-  height: 8rem;
-  width: 13rem;
+  height: 7rem;
+  width: 11rem;
   margin-top: 3rem;
 }
 .item-reset {
@@ -34,5 +34,5 @@ h1 {
 .dice {
   transform: scale(0.7);
   top: 20%;
-  left: 41.55%;
+  left: 44%;
 }
