@@ -5,10 +5,11 @@
 .container {
   height: 400px;
   width: 90vw;
+  margin-top: 1rem;
 }
 
 h1 {
-  font-size: 1.4rem;
+  font-size: 1.1rem;
 }
 
 .totalScore {
@@ -17,29 +18,29 @@ h1 {
 
 .currentContainer {
   height: 7rem;
-  width: 11rem;
-  margin-top: 3rem;
+  width: 7rem;
+  margin-top: 5rem;
 }
 .item-reset {
   margin-top: 0.5rem;
-  padding: 1rem;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
+
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .btn-roll {
-  top: 55%;
+  top: 60%;
 }
 
 .btn-hold {
-  top: 68%;
+  top: 74%;
 }
 
 .dice {
   border: 2px;
   transform: scale(0.7);
   top: 20%;
-  left: 41%;
+  left: 37%;
 }
 
 .item1 {
