@@ -1,116 +1,97 @@
+// save the total number of 2 players score
 var totalScore = [0, 0];
+// when a dice roll, save the current total score
 var current = 0;
-
-//who is turning now
+// 0 - is first player, 1 is second player
 var activePlayer = 0;
 
-document.querySelector("#score0").textContent = "0";
-document.querySelector("#score1").textContent = "0";
-document.querySelector("#current0").textContent = "0";
-document.querySelector("#current1").textContent = "0";
+//prepare for the start program
+var score0 = document.getElementById("score0");
+var score1 = document.getElementById("score1");
+var current0 = document.getElementById("current0");
+var current1 = document.getElementById("current1");
 var diceDisplay = document.getElementById("dice");
 diceDisplay.style.display = "None";
-//Програм эхлэхэд бэлдэх
+
+// reset the all variables
 function init() {
   activePlayer = 0;
-  document.querySelector("#score0").textContent = "0";
-  document.querySelector("#score1").textContent = "0";
-  document.querySelector("#current0").textContent = "0";
-  document.querySelector("#current1").textContent = "0";
+  score0.textContent = "0";
+  score1.textContent = "0";
+  current0.textContent = "0";
+  current1.textContent = "0";
   diceDisplay.style.display = "None";
   current = 0;
   totalScore = [0, 0];
 }
-
-// Roll дарах үед дурын тоо хэвлэх
-
+// when rolls a "1" on dice and press hold button, turn will be changed
+function reset() {
+  current = 0;
+  document.getElementById("current" + activePlayer).textContent = "" + current;
+  document
+    .querySelector(".player" + activePlayer)
+    .classList.toggle("active-bg");
+  diceDisplay.style.display = "none";
+  activePlayer === 0 ? (activePlayer = 1) : (activePlayer = 0);
+  console.log("Idewhitei player : " + activePlayer + " bolloo");
+  document
+    .querySelector(".player" + activePlayer)
+    .classList.toggle("active-bg");
+}
+// click the Roll button
 document.getElementById("btn-roll").addEventListener("click", function () {
+  //random number
   var randomNumber = Math.floor(Math.random() * 6) + 1;
-  console.log("Random number - " + randomNumber);
 
   if (randomNumber !== 1) {
+    //add dice number to VAR current
     current += randomNumber;
+    //show the dice
     diceDisplay.style.display = "block";
+    //change src code on image element in html
     diceDisplay.src = "dice" + randomNumber + ".jpg";
-    document.querySelector("#current" + activePlayer).textContent =
+    // show dice number on total score for players
+    document.getElementById("current" + activePlayer).textContent =
       "" + current;
   } else {
     console.log("-------------- 1 buuchlaa ---------------");
-    current = 0;
-    document.querySelector("#current" + activePlayer).textContent =
-      "" + current;
-    document
-      .querySelector(".player" + activePlayer)
-      .classList.toggle("active-bg");
-    diceDisplay.style.display = "none";
-    activePlayer === 0 ? (activePlayer = 1) : (activePlayer = 0);
-    console.log("Idewhitei player : " + activePlayer + " bolloo");
-    document
-      .querySelector(".player" + activePlayer)
-      .classList.toggle("active-bg");
-    console.log(
-      "classlist : " +
-        document.querySelector(".player" + activePlayer).classList
-    );
+    reset();
   }
 });
 
 document.getElementById("btn-hold").addEventListener("click", function () {
   console.log("----------------HOLD----------------");
-  document
-    .querySelector(".player" + activePlayer)
-    .classList.toggle("active-bg");
-  console.log("current : " + current);
+  //save total score for players
   totalScore[activePlayer] += current;
-  console.log(
-    "Idewhitei player : " + activePlayer + " onoo : " + totalScore[activePlayer]
-  );
-  document.querySelector("#score" + activePlayer).textContent =
+  //show total score
+  document.getElementById("score" + activePlayer).textContent =
     "" + totalScore[activePlayer];
+  //checking total score < 100 if yes continue no show win
   if (totalScore[activePlayer] < 100) {
-    current = 0;
-    document.querySelector("#current" + activePlayer).textContent =
-      "" + current;
-    diceDisplay.style.display = "none";
-    activePlayer === 0 ? (activePlayer = 1) : (activePlayer = 0);
-    console.log("Idewhitei player : " + activePlayer + " bolloo");
-    console.log(
-      "Idewhitei player : " +
-        activePlayer +
-        " onoo : " +
-        totalScore[activePlayer]
-    );
-    document
-      .querySelector(".player" + activePlayer)
-      .classList.toggle("active-bg");
+    reset();
   } else {
     console.log("----------------win--------------");
-    document.querySelector("#score" + activePlayer).textContent = "Won!!!";
+    document.getElementById("score" + activePlayer).textContent = "Won!!!";
     document.querySelector(".player" + activePlayer).classList.add("win-bg");
     document.getElementById("btn-hold").style.display = "none";
     document.getElementById("btn-roll").style.display = "none";
-    console.log("active P:" + activePlayer);
-    console.log(
-      "bg :" + document.querySelector(".player" + activePlayer).classList
-    );
   }
 });
-
+// start new game
 document.querySelector(".item-reset").addEventListener("click", function () {
+  console.log("------------- new game --------------- ");
   document.querySelector(".player" + activePlayer).classList.remove("win-bg");
   document.getElementById("btn-hold").style.display = "block";
   document.getElementById("btn-roll").style.display = "block";
-  if (activePlayer === 1) {
-    document
-      .querySelector(".player" + activePlayer)
-      .classList.remove("active-bg");
-    document.querySelector(".player" + 0).classList.add("active-bg");
-  } else {
-    document.querySelector(".player" + 0).classList.add("active-bg");
-  }
+  // same code as reset()
+  // if (activePlayer === 1) {
+  //   document
+  //     .querySelector(".player" + activePlayer)
+  //     .classList.remove("active-bg");
+  //   document.querySelector(".player" + 0).classList.add("active-bg");
+  // } else {
+  //   document.querySelector(".player" + 0).classList.add("active-bg");
+  // }
+  reset();
   init();
-  console.log("active P:" + activePlayer);
-  console.log(
-    "bg :" + document.querySelector(".player" + activePlayer).classList
-  );
 });
